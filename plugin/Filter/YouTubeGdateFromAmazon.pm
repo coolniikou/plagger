@@ -60,7 +60,7 @@ sub embed{
 
 sub search_youtube{
         my ($self,$context,$query) = @_;
-        my $url = "http://gdata.youtube.com/feeds/api/videos?vq=" .
+        my $url = "http://gdata.youtube.com/feeds/api/videos?most_viewed&vq=" .
            URI::Escape::uri_escape_utf8($query);
         my $feed = XML::Atom::Feed->new(URI->new($url));
 
