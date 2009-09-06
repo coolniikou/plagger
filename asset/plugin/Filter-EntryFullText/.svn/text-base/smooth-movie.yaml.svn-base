@@ -1,0 +1,8 @@
+# http://www.smooth-movie.com/jp/download.html?videocode=
+author: yusukebe
+handle: http://www\.smooth-movie\.com/jp/download\.html\?videocode=
+extract: alt="女優".*?<a href="movie.html\?actid=.*?">(.*?)</a>.*?alt="登録日".*?">(\d{4}/\d{2}/\d{2})\(.*?<p class="dotted_line"></p>.*?<img src="(http://video.*?\.smooth-movie.com/video/.*?\.jpg)".*?<p class="dotted_line"></p>(.*?)<p class="dotted_line"></p>
+extract_capture: act date img body
+extract_after_hook: |
+  $data->{body}=~ s/<a href=.*?>(.*?)<\/a>/$1/g;
+

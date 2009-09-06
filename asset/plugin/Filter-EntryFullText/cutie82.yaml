@@ -1,0 +1,13 @@
+# http://www.cutie82.com/list.php?category=10
+author: yusukebe
+custom_feed_handle: http://www\.cutie82\.com/list\.php.*?
+custom_feed_follow_link: ../movie/.*?
+handle: http://www\.cutie82\.com/movie/.*?
+extract: <meta name="keywords" content="(.*?)".*?<strong><div class="mt4">(.*?)</div>.*?img/movie-gamenT_4.jpg" align="center"><img src="(.*?)".*?女優名：(.*?)<br>.*?公開日：(.*?)<br>.*?コメント：<br>(.*?)</td>
+extract_capture: tags title img act date body
+extract_date_format: %Y-%m-%d
+extract_after_hook: |
+  $data->{img} =~ s/..//;
+  $data->{img} = "http://www.cutie82.com" . $data->{img};
+  $data->{act} =~ s/<a.*?>(.*?)<\/a>/$1/g;
+

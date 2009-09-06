@@ -1,0 +1,9 @@
+# http://www.sukiyakiav.com/catalog/default/
+author: yusukebe
+custom_feed_handle: http://www\.sukiyakiav\.com/catalog/default/
+custom_feed_follow_link: http://www\.sukiyakiav\.com/catalog/list/products_id/.*?
+handle: http://www\.sukiyakiav\.com/catalog/list/products_id/.*?
+extract: <meta name="keywords" content="(.*?)".*?<td align="center" class="smallText" width = 300>.*?<img src="(.*?)".*?<td class="size12" valign="top">(.*?)</td>.*?<tr>.*?</tr>.*?<tr>.*?</tr>.*?<tr>.*?</tr>.*?<tr>.*?</tr>.*?<tr>.*?</tr>.*?<td.*?</td>.*?<td class="size12" valign="top">(.*?)</td>
+extract_capture: tags img date body
+extract_date_format: %Y/%m/%d
+

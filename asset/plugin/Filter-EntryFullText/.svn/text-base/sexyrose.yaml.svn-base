@@ -1,0 +1,10 @@
+# http://www.sexyrose.tv/list.php?category=12
+author: yusukebe
+custom_feed_handle: http://www\.sexyrose\.tv/list\.php.*?
+custom_feed_follow_link: http://www\.sexyrose\.tv/.*?/movie/.*?\.html
+handle: http://www\.sexyrose\.tv/.*?/movie/.*?
+#extract: <div id="contents">.*?<h2>(.*?)</h2>.*?class="movie_l"><img src="(.*?)".*?公開日.*?(\d{4}/\d{2}/\d{2})</td>.*?ジャンル.*?<td class="tright">(.*?)</td>.*?女優.*?<dd>(.*?)</dd>.*?コメント.*?<dd>(.*?)</dd>
+extract: <p class="movie_title">(.*?)</p>.*?<p class="movie_screen01"><img src="(.*?)".*?女優名(.*?)<br />.*?公開日.*?(\d{4}\.\d{2}\.\d{2}).*?<p class="mt5">(.*?)</p>
+extract_capture: title img act date body
+extract_after_hook: |
+  $data->{act}=~ s/<a href=.*?>(.*?)<\/a>/$1/g;

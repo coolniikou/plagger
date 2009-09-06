@@ -1,0 +1,13 @@
+# http://www.1pondo.tv/home.htm
+author: yusukebe
+custom_feed_handle: http://www\.1pondo\.tv/home\.htm
+custom_feed_follow_link: http://www\.1pondo\.tv/moviepages/.*?\.htm
+handle: http://www\.1pondo\.tv/moviepages/.*?
+extract: <title>(.*?)</title>.*?<meta name="keywords" content="(.*?)".*?<meta name="description" content="(.*?)">.*?onClick.*?http://www\.1pondo\.tv/moviepages/(\d{6}_\d{3})/images/popu\.jpg
+extract_capture: titleact tags body date
+extract_date_format: %m%d%y
+extract_after_hook: |
+  ($data->{title} = $data->{titleact}) =~ s/.*?::\s//g;
+  my $regex = decode("utf-8","「.*?」");
+  ($data->{act} = $data->{title}) =~ s/$regex//;
+  $data->{img}= http://www.1pondo.tv/moviepages/". $data->{date} . "/images/popu.jpg";

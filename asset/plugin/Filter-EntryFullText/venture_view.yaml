@@ -1,0 +1,6 @@
+# venture view 
+# http://v.japan.cnet.com/ 
+author: cool_ni_ikou 
+handle_force: http://feeds\.v\.japan\.cnet\.com/click\.phdo?i=.*
+extract_xpath:
+  body: //div[@class="articlecontent"]

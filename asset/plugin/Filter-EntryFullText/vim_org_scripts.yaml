@@ -1,0 +1,10 @@
+# http://www.vim.org/
+author: Masafumi Otsune
+custom_feed_handle: http://www\.vim\.org/scripts/index\.php
+custom_feed_follow_link: /script\.php\?script_id=\d+
+handle: http://www\.vim\.org/scripts/script\.php\?script_id=\d+
+extract_xpath:
+  body: //span[@class="txth1"]/../p
+  date: //tr[@class='tableheader']/../tr[2]/td[3]/i
+extract_date_format: %Y-%m-%d
+extract_date_timezone: UTC

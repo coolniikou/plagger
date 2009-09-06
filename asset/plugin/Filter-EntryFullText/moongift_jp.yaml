@@ -1,0 +1,5 @@
+# update http://www.moongift.jp/
+author: poppen
+handle_force: http://www\.moongift\.jp/\d{4}/\d{2}/\w+/
+extract: <p class="meta2">.*?<!--- article --->(.*?)<!--- /article --->
+extract_capture: body

@@ -1,0 +1,8 @@
+# http://www.caribbeancom.com/index2.htm
+author: yusukebe
+custom_feed_handle: http://www\.caribbeancom\.com/index2\.htm
+custom_feed_follow_link: http://www\.caribbeancom\.com/moviepages/.*?\.html
+handle: http://www\.caribbeancom\.com/moviepages/.*?
+extract: <META name="keywords" content="(.*?)">.*?<h2>(.*?)</h2>.*?<p class="between2"></p>.*?<img src="(.*?)".*?<textarea class=text_basic name=textarea wrap=VIRTUAL cols=55 rows=8>(.*?)</textarea>.*?<td class="value">(\d{4}/\d{2}/\d{2})</td>
+extract_capture: tags title img body date
+extract_date_format: %Y/%m/%d

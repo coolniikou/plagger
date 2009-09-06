@@ -1,0 +1,7 @@
+# upgrade http://www.sciencedaily.com/rss/newsfeed.xml
+author: Masafumi Otsune
+handle: http://www\.sciencedaily\.com/releases/[/\d]+\.htm
+extract_xpath: 
+  body: //div[@id="story"]
+  photo: //div[@id="photo"]
+extract_after_hook: $data->{body} = $data->{photo} . $data->{body}

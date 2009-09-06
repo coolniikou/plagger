@@ -1,0 +1,5 @@
+# digg
+author: Shigefumi
+handle: http://digg.com/\w+/\w+
+extract: <title>(.*?)\[クックパッド\].*?<div id="content">(.*?)<div id="sub-nav">
+extract_capture: title body

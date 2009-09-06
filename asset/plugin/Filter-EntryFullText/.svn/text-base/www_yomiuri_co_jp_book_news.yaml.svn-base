@@ -1,0 +1,5 @@
+custom_feed_handle: http://www\.yomiuri\.co\.jp/book/news/$
+custom_feed_follow_xpath: //a[@class="headline-s"]
+handle: http://www\.yomiuri\.co\.jp/book/news/\w+\.html?$
+extract: (<table class="la-table">.*?<!-- ▲本DATA▲ -->\s*</tr>\s*</table>)
+extract_capture: body

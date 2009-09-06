@@ -1,0 +1,22 @@
+custom_feed_handle: http://piapro\.jp/\w+$
+custom_feed_follow_xpath: //a[contains(@href, "/content/")]
+handle: http://piapro\.jp/content/\w+$
+extract_xpath:
+  author:   //span[@class="icon_usr"]/a/text()
+  title:    //div[contains(@class, "tab_title")]/span/text()
+  date:     //div[@class="h02 str_otr"]/following-sibling::div[1]/text()
+  image:    //img[@src="/modpub/images/spacer.gif"]/@style
+  text:     //div[@class="box_txt_in wordbreak"]
+  download: //a[contains(@href,"/download/")]
+  body:     //div[@class="mt10 wordbreak"] | //p[@class="wordbreak"]
+extract_date_format: %Y/%m/%d %H:%M
+extract_date_timezone: Asia/Tokyo
+extract_after_hook: |
+  if (defined $data->{image} && $data->{image} =~ /:url\((.*?)\)/) {
+      $data->{body} = qq!<div><img src="$1"></div>$data->{body}!;
+  } elsif (defined $data->{text}) {
+      $data->{text} =~ s|<div (?!class).*?</div>||g;
+      $data->{body} = qq!$data->{text}$data->{body}!;
+  }
+  $data->{body} = "$data->{body}<div>$data->{download}</div>";
+

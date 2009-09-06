@@ -1,0 +1,5 @@
+# technorati
+author: Shigefumi
+handle: http://www.technorati.jp/post/\w+
+extract: <title>テクノラティ:(.*?)<div id="main">(.*?)<div id="latest">
+extract_capture: title body

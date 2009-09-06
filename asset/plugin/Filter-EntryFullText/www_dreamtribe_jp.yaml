@@ -1,0 +1,5 @@
+custom_feed_handle: http://(www\.)?dreamtribe\.jp/(?:[-\w]+/)?(?:index\.asp)?$
+custom_feed_follow_xpath: //dd[@class="work"]/a
+handle: http://(www\.)?dreamtribe\.jp/[-\w]+/works\.asp\?work_id=\d+$
+extract_xpath:
+  body: id("thumbnail")

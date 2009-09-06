@@ -1,0 +1,6 @@
+# author: SweetPotato
+custom_feed_handle: http://www\.yomiuri\.co\.jp/book/comic/$
+custom_feed_follow_xpath: //a[@class="headline-s"]
+handle: http://www\.yomiuri\.co\.jp/book/comic/\w+/\w+\.html?$
+extract: ((?:<ul[^>]*class="list-def"[^>]*>|<div[^>]*class="photo-r"[^>]*>).*?)<!-- ▲日付▲ -->
+extract_capture: body

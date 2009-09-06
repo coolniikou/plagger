@@ -1,0 +1,6 @@
+# http://www.nihonshokken.co.jp/today/index.html
+author: Masafumi Otsune
+handle: http://www\.nihonshokken\.co\.jp/today/(?:\d{4}_\d{2}/\d{2}|index)\.html
+extract_xpath:
+  body: //table[@width="660"]
+  date: //h2

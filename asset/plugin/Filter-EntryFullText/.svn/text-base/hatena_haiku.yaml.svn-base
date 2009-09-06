@@ -1,0 +1,5 @@
+# http://h.hatena.ne.jp/<uid or keyword>/.rss
+author: mayuki
+handle: http://h\.hatena\.ne\.jp/.*?/
+extract: <div class="body">(.*?)</div>\s*<div class="info
+extract_capture: body

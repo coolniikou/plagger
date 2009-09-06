@@ -1,0 +1,5 @@
+# http://www.onacle.tv/jp/download.html?videocode=A
+author: yusukebe
+handle: http://www\.onacle\.tv/jp/download\.html\?videocode=.*?
+extract: <meta name="keywords" content="(.*?)".*?<img src="(http://video.*?.onacle.tv/video/.*?\.jpg)".*?<a href="movie.html\?actid=.*?">.*?<a href="movie.html\?actid=.*?">(.*?)</a>.*?登録日時 : (\d{4}/\d{2}/\d{2})
+extract_capture: tags img act date

@@ -1,0 +1,7 @@
+# http://www.1046034.com/
+author: yusukebe
+custom_feed_handle: http://www\.1046034\.com/.*?
+custom_feed_follow_link: http://www.1046034.com/movie/.*?
+handle: http://www.1046034.com/movie/.*?
+extract: <!-- コメント -->(.*?)</td>.*?公開日:.*?(\d{4}/\d{2}/\d{2}).*?ジャンル:\s(.*?)</td>.*?<img src="\./(.*?)" width="480" height="360">
+extract_capture: body date genre img

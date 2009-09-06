@@ -1,0 +1,10 @@
+# http://www.10musume.com/home.html
+author: yusukebe
+custom_feed_handle: http://www\.10musume\.com/home\.html
+custom_feed_follow_link: moviepages/.*?\.html
+handle: http://www\.10musume\.com/moviepages/.*?
+extract: <img src="moviepages/(\d{6})(.*?)".*?名前：.*?<td width="125" scope="col">(.*?)</td>.*?<textarea.*?>(.*?)</textarea>
+extract_capture: date img act body
+extract_date_format: %m%d%y
+extract_after_hook: |
+  $data->{img} = "http://www.10musume.com/moviepages/" . $data->{date} . $data->{img};

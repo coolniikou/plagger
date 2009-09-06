@@ -1,0 +1,10 @@
+# http://www.eroseven.com/
+author: yusukebe
+custom_feed_handle: http://www\.eroseven\.com/
+custom_feed_follow_link: mv_info\.php\?m.*?
+handle: http://www\.eroseven\.com/mv_info\.php\?m=.*?
+extract: <!-- large photo starts. -->.*?<img src="(.*?)".*?<font class="highlight">(.*?)</font><br>(.*?)</td>.*?(\d{4}/\d{2}/\d{2}).*?<a href="ac_info\.php\?a=.*?">(.*?)</a>
+extract_capture: img title body date act
+extract_date_format: %Y/%m/%d
+extract_after_hook: |
+  $data->{act} =~ s/\w//g;

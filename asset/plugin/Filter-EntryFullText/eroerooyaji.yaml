@@ -1,0 +1,10 @@
+# http://www.eroerooyaji.com/
+author: yusukebe
+custom_feed_handle: http://www.eroerooyaji.com/.*?
+custom_feed_follow_link: http://www.eroerooyaji.com/movie/movie\d{4}\.html
+handle: http://www.eroerooyaji.com/movie/movie\d{4}\.html
+extract: ジャンル</strong>：</span>(.*?)</td>.*?<!-- movie_id (.*?) -->.*?<!-- act (.*?) -->.*?<!-- title (.*?) -->.*?<!-- date (\d{4}/\d{2}/\d{2}) -->.*?<!-- comment (.*?) -->
+extract_capture: genre id act title date body
+extract_after_hook: |
+  $data->{img}= "http://www.eroerooyaji.com/movie/image/". $data->{id} . "/movie_thumb.jpg";
+  $data->{tags} = $data->{act} . "," . $data->{genre};

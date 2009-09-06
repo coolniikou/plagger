@@ -1,0 +1,4 @@
+author: coolniikou
+handle_force: http://ameblo\.jp/.*/.*\.html
+extract_xpath:
+  body: //div[@class="subContents"]

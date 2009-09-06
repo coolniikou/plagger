@@ -1,0 +1,6 @@
+# nikkey TRENDYnet
+# http://trendy.nikkeibp.co.jp/rss/life.rdf
+author: cool_ni_ikou 
+handle_force: http://trend\.netadguide\.yahoo\.co\.jp/guide/(adcolumn|feauture)/view/\d+.html
+extract_xpath:
+  body: //div[@id="ContentsBody"]

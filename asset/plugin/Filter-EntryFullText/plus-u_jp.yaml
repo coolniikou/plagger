@@ -1,0 +1,4 @@
+# upgrade http://plus-u.jp/blog/
+handle_force: http://plus-u\.jp/blog/.+/\?p=\d+
+extract_xpath:
+  body: //div[@class="post"]

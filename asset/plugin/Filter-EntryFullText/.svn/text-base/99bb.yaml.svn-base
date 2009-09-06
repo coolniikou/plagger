@@ -1,0 +1,11 @@
+# http://(ppv|monthly).99bb.com/ja/detail/
+author: yusukebe
+handle_force: http://(ppv|monthly)\.99bb\.com/ja/detail/.*?
+extract: <strong>(.*?)</strong></h1>.*?<img src="(.*?)".*?女優名.*?<td><h3>(.*?)</h3></td>.*?公開開始.*?<td class="px12">(\d{4}-\d{2}-\d{2})</td>.*?コメント.*?<td class="px12">(.*?)</td>
+extract_capture: title img act date body
+extract_after_hook: |
+  $data->{body}=~ s/<br><br>.*?<br><br>//g;
+  my @acts = split("\n", $data->{act});
+  $data->{act}= join(",", @acts);
+  $data->{act}=~ s/<a href=.*?>(.*?)<\/a>/$1/g;
+  $data->{act}= "---" if($data->{act} eq '');

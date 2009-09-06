@@ -1,0 +1,4 @@
+author: cool_ni_ikou
+handle: http://digg\.com/.*?
+extract: <div id="contents">(.*?)<div class="corpus-contents">
+extract_capture: body

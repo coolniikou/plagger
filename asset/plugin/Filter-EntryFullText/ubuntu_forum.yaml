@@ -1,0 +1,6 @@
+# Ubuntu-ja forum
+# https://forums.ubuntulinux.jp/index.php 
+author: cool_ni_ikou 
+handle_force: https://forums\.ubuntulinux\.jp/viewtopic\.php\?id=\d+&.*
+extract_xpath:
+  body: //div[@class="pun"]

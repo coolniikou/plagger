@@ -1,0 +1,7 @@
+# http://codezine.jp/
+#   http://rss.rssad.jp/rss/codezine/new/20/index.xml
+author: suVene
+handle: http://codezine\.jp/(?:a/)?article/(?:aid|detail)/\d+(?:\.aspx)?
+extract_xpath:
+  body: //div[@class="bodyformattedpage" or @id="article"]
+

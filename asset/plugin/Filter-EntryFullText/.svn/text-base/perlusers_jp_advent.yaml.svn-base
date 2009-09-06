@@ -1,0 +1,7 @@
+# http://perl-users.jp/articles/advent-calendar/
+author: 
+  - Masafumi Otsune
+handle: http://perl-users\.jp/articles/advent-calendar/\d{4}/\w+
+extract_xpath:
+  title: //h1/text()
+  body: //body

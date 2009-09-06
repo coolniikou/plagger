@@ -1,0 +1,13 @@
+# http://duga.jp/
+# act is not set yet...
+author: yusukebe
+custom_feed_handle: http://duga\.jp/.*?
+custom_feed_follow_link: http://duga\.jp/*.?/(ppv|month)/.*?\d{4}/
+handle: http://duga\.jp/*.?/(ppv|month)/.*?\d{4}/
+extract: <meta name="description" content="(.*?)".*?<h1>(.*?)</h1>.*?<div class="product-img">.*?<img src="(.*?)".*?レーベル.*?<a href="/keyword/.*?">(.*?)</a>.*?公開開始日.*?<td style="padding-top:2px;"><p>(.*?)</p>.*?カテゴリ.*?<td style="padding-top:2px;"><p>(.*?)</p>
+extract_capture: body title img label date category
+extract_date_format: %y年%m月%d日
+extract_after_hook: |
+  $data->{category} =~ s/<a href=.*?>(.*?)<\/a>/$1/g;
+  $data->{category} =~ s/>/,/g;
+  $data->{tags} = $data->{category} . "," . $data->{label}

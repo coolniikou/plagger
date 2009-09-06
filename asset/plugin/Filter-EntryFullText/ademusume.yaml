@@ -1,0 +1,12 @@
+# http://www.ademusume.com/list.php?category=10
+author: yusukebe
+custom_feed_handle: http://www\.ademusume\.com/list\.php.*?
+custom_feed_follow_link: ./movie/movie\.php.*?
+handle: http://www\.ademusume\.com/movie/.*?
+extract: <img src=".(/image/.*?/movie_thumb.jpg)".*?</span>タイトル：(.*?)</td>.*?</span>女優名：(.*?)</td>.*?</span>ジャンル：(.*?)</td>.*?(\d{4}/\d{2}/\d{2})</td>.*?コメント：<br>(.*?)</td>
+extract_capture: img title act genre date body
+extract_date_format: %Y/%m/%d
+extract_after_hook: |
+  $data->{img} = "http://www.ademusume.com/movie" . $data->{img};
+  $data->{tags}= $data->{act}.",".$data->{genre};
+

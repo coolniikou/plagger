@@ -1,0 +1,13 @@
+# http://www.ittele.tv/jp/movie.html?lw=all
+# http://www.ittele.tv/rss/rss.rdf
+author: yusukebe
+custom_feed_handle: http://www\.ittele\.tv/jp/movie\.html\?lw=all
+custom_feed_follow_link: download\.html\?videocode=.*?
+handle: http://www\.ittele\.tv/jp/download\.html\?videocode=.*?
+extract: <meta name="keywords" content="(.*?)".*?<!-- start 4 large thumbnails -->.*?<img src="(.*?)".*?Actress.*?<a href="movie.html\?actid=.*?">(.*?)</a>.*?(\d{4}/\d{2}/\d{2}).*?<span class="default_txt">(.*?)</span>
+extract_capture: tags img act date body
+extract_date_format: %Y/%m/%d
+extract_after_hook: |
+  $data->{body}=~ s/<a href=.*?>(.*?)<\/a>/$1/g;
+  $data->{tags}= $data->{act} . "," . $data->{tags};
+

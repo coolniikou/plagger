@@ -1,0 +1,9 @@
+# http://www.tora-tora-tora.com/(ppv|monthly/tora)/detail/index.php?id=\d+
+author: yusukebe
+handle: http://www\.tora-tora-tora\.com/(ppv|monthly/tora)/detail/index\.php\?id=\d+
+extract: <meta name="keywords" content="(.*?)".*?<img src="(http://vod.tora-tora-tora.com/av/images/movie/\d+/bfile1.jpg)".*?<div class="m_mainframe1_center".*?">(.*?)</div>
+extract_capture: tags img body
+extract_after_hook: |
+  my @tags_arr = split(",",$data->{tags});
+  $data->{tags} = join(',',@tags_arr[0..2]);
+  $data->{act}= $tags_arr[0];

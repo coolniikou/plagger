@@ -1,0 +1,10 @@
+# http://www.exotica-xxx.com/list.php?category=8
+author: yuisukebe
+custom_feed_handle: http://www\.exotica-xxx\.com/list\.php.*?
+custom_feed_follow_link: ./movie/.*?
+handle: http://www\.exotica-xxx\.com/movie/.*?
+extract: <div id="contents">.*?<h2>(.*?)</h2>.*?class="movie_l"><img src="(.*?)".*?公開日.*?(\d{4}/\d{2}/\d{2})</td>.*?ジャンル.*?<td class="tright">(.*?)</td>.*?女優.*?<dd>(.*?)</dd>.*?コメント.*?<dd>(.*?)</dd>
+extract_capture: title img date genre act body
+extract_after_hook: |
+  $data->{act}=~ s/、/,/gs;
+  $data->{tags}= $data->{act}.",".$data->{genre};

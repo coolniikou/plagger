@@ -1,0 +1,6 @@
+# Yahoo fashion X BRAND
+# http://xbrand.yahoo.co.jp/rss/magazine/all.xml
+author: cool_ni_ikou 
+handle_force: http://xbrand\.yahoo\.co\.jp/magazine/\w+/\w+/\d+/(\d+|)\.html
+extract_xpath:
+  body: /html/body/div/div/div[4]/div[3]/div/div[5]

@@ -1,0 +1,5 @@
+# upgrade http://kichiku.oq.la/rss
+author: Yasuhiro Matsumoto
+handle_force: http://kichiku\.oq\.la/show/\d+
+extract: (<a [^>]+><img src="/images/\d+.jpg"[^>]+></a>)
+extract_capture: body

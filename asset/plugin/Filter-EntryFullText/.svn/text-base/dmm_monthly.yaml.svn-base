@@ -1,0 +1,11 @@
+# http://www\.dmm\.co\.jp/.*?/detail/.*?
+author: yusukebe
+handle_force: http://www\.dmm\.co\.jp/.*?/detail/.*?
+extract: src="(http://pics\.dmm\.co\.jp/.*?\.jpg)".*?<!--actressname_begin-->(.*?)<!--actressname_end-->.*?<div.*?>(.*?)</div>
+extract_capture: img act body
+extract_after_hook: |
+  $data->{body}=~ s/<span>|<\/span>|<br>//g;
+  $data->{act}=~ s/<a.*?>(.*?)<\/a>/$1,/g;
+  $data->{act}=~ s/&nbsp;//g;
+
+

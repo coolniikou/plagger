@@ -1,0 +1,8 @@
+# http://www.omany.tv/jp/download.html?videocode=
+author: yusukebe
+handle: http://www\.omany\.tv/jp/download.html\?videocode=.*?
+extract: <META name="keywords" content="(.*?),無修正動画.*?".*?<p id="thumbnail".*?<IMG src="(.*?)".*?alt="登録日">(\d{4}/\d{2}/\d{2}).*?</p>\s*?<p>(.*?)</p>
+extract_capture: tags img date body
+extract_after_hook: |
+   $data->{body}=~ s/<a href=.*?>(.*?)<\/a>/$1/g;
+

@@ -1,0 +1,14 @@
+# http://transit.yahoo.co.jp/railway/area?ac=<code>&an=<name>
+author: hb@smallstyle
+custom_feed_handle: http://transit\.yahoo\.co\.jp/railway
+custom_feed_follow_link: /detail\?ac=\d+&line=\d+&cp=\d+
+handle: http://transit\.yahoo\.co\.jp/railway/detail\?ac=\d+&line=\d+&cp=\d+
+extract_xpath:
+  title: //h2/b/text()
+  body: //div[@id="info_display"]/text()
+  date: //div[@id="info_time"]/text()
+extract_after_hook: |
+  my $regex = decode("utf-8","(平常通り|再開|遅れ|運転変更|見合わせ|運休)");
+  my @status;
+  while($data->{body} =~ /$regex/g){push(@status, $1);}
+  $data->{title} = "[$status[$#status]] $data->{title} $data->{date}"

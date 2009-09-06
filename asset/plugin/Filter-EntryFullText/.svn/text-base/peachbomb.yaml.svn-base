@@ -1,0 +1,11 @@
+# http://www.peachbomb.com/
+
+custom_feed_handle: http://www.peachbomb.com/.*?
+custom_feed_follow_link: http://www.peachbomb.com/movie/movie\d{4}\.html
+handle: http://www.peachbomb.com/movie/movie\d{4}\.html
+#extract: <title>(.*?)</title>.*?<td align="center" valign="middle"><img src="../(.*?)".*?女優名：(.*?)</td>.*?ジャンル：(.*?)</td>.*?公開日：(.*?)</td>.*?コメント：(.*?)</td>
+extract: <td align="center" valign="middle"><img src="(.*?)".*?<!-- act (.*?) -->.*?<!-- title (.*?) -->.*?<!-- date (.*?) -->.*?<!-- category (.*?) -->.*?<!-- comment (.*?) -->.*?
+extract_capture: img act title date genre body
+extract_date_format: %Y年%m月%d日
+extract_after_hook: |
+  $data->{tags} = $data->{act} . "," . $data->{genre};
