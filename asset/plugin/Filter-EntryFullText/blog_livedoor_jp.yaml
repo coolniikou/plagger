@@ -1,6 +1,6 @@
-# http://blog.livedoor.jp/kensuu/
-#   http://blog.livedoor.jp/kensuu/index.rdf
-author: suVene
+# http://blog.livedoor.jp/
+#   http://blog.livedoor.jp/.*/index.rdf
+author: cool_ni_ikou
 handle_force: http://blog\.livedoor\.jp/
 extract_xpath:
   body: //div[@class="article-body" or @class="entry-content" or @class="entry-body"]
