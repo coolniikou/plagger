@@ -39,31 +39,3 @@ sub update {
 1;
 
 __END__
-
-=head1 NAME
-
-Plagger::Plugin::Filter::HatenaBookmarkTag - Fetch tags from Hatena Bookmark
-
-=head1 SYNOPSIS
-
-  - module: Filter::HatenaBookmarkTag
-
-=head1 DESCRIPTION
-
-B<Note: this module is mostly untested and written just for a proof of
-concept. If you run this on your box with real feeds, Hatena might
-throttle your IP. See http://b.hatena.ne.jp/ for details.>
-
-This plugin queries Hatena Bookmark (L<http://b.hatena.ne.jp/>) using
-its RSS feeds API to get the tags people added to the entries.
-
-=head1 AUTHOR
-
-Tatsuhiko Miyagawa
-
-=head1 SEE ALSO
-
-L<Plagger>, L<Plagger::Plugin::Filter::HatenaBookmarkUsersCount>,
-L<http://b.hatena.ne.jp/>
-
-=cut
